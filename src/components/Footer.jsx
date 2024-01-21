@@ -10,32 +10,32 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-footer p-8 xl:p-20">
+    <footer className="bg-[#141215] p-8 xl:p-20">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-gray-500 pb-8">
         {/* Logo */}
         <div className="w-1/6">
           <a
             href="#"
-            className="text-2xl font-bold relative p-1 bg-footer text-white"
+            className="text-2xl font-bold relative p-1 bg-amarillo text-white"
           >
-            BigBuy<span className="text-primary text-5xl">.</span>{" "}
+            BigBuy<span className="text-black text-5xl">.</span>{" "}
           </a>
         </div>
         {/* Social media */}
         <nav className="flex items-center gap-4">
-          <a href="#" className="block text-white p-4 bg-primary rounded-full">
+          <a href="#" className="block text-white p-4 bg-amarillo text-black hover:bg-white hover:text-black rounded-full">
             {" "}
             <RiInstagramLine />{" "}
           </a>
-          <a href="#" className="block text-white p-4 bg-primary rounded-full">
+          <a href="#" className="block text-white p-4 bg-amarillo text-black hover:bg-white hover:text-black rounded-full">
             {" "}
             <RiFacebookLine />{" "}
           </a>
-          <a href="#" className="block text-white p-4 bg-primary rounded-full">
+          <a href="#" className="block text-white p-4 bg-amarillo text-black hover:bg-white hover:text-black rounded-full">
             {" "}
             <RiTwitterLine />{" "}
           </a>
-          <a href="#" className="block text-white p-4 bg-primary rounded-full">
+          <a href="#" className="block text-white p-4 bg-amarillo text-black hover:bg-white hover:text-black rounded-full">
             {" "}
             <RiGithubLine />{" "}
           </a>
@@ -43,56 +43,46 @@ const Footer = () => {
       </div>
       <div className="mt-8">
         <h3 className="text-lg font-bold text-white text-center md:text-left">
-          Company
+          Navegación
         </h3>
         <nav className="mt-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <a
             href="#"
             className="text-gray-300 mt-4 hover:text-white transition-colors"
           >
-            About Us
+            BigBuy
+          </a>
+          <a
+            href="#beneficios"
+            className="text-gray-300 mt-4 hover:text-white transition-color"
+          >
+            Beneficios de vender con BigBuy
           </a>
           <a
             href="#"
             className="text-gray-300 mt-4 hover:text-white transition-color"
           >
-            Press
+            Planes
           </a>
           <a
             href="#"
             className="text-gray-300 mt-4 hover:text-white transition-color"
           >
-            Investors
+            Empezar a vender
           </a>
-          <a
-            href="#"
-            className="text-gray-300 mt-4 hover:text-white transition-color"
-          >
-            Events
-          </a>
-          <a
-            href="#"
-            className="text-gray-300 mt-4 hover:text-white transition-color"
-          >
-            Terms of use
-          </a>
-          <a
-            href="#"
-            className="text-gray-300 mt-4 hover:text-white transition-color"
-          >
-            Privacy policy
-          </a>
+         
+        
           <button
             type="button"
-            className="font-semibold py-2 px-6 bg-primary text-white rounded-xl"
+            className="font-semibold py-2 px-6 bg-amarillo text-black hover:text-white hover:bg-black rounded-xl"
           >
-            Contact Us
+            Contacto
           </button>
         </nav>
       </div>
       <div className="mt-20">
         <p className="text-gray-300 text-center">
-          © jotredev 2022 - All Rights Reserved
+          © BigBuy 2024
         </p>
       </div>
     </footer>

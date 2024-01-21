@@ -18,7 +18,9 @@ const Services = () => {
         <p className="text-[20px] text-gray-500">
         Si tiene cualquier duda sobre...
         </p>
+
         <MiniForm />
+       
      
       </div>
       {/* Services */}
@@ -26,30 +28,30 @@ const Services = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="flex flex-col gap-2">
           <RiSmartphoneFill className="text-4xl p-2 bg-secondary text-primary box-content rounded-xl" />
-          <h3 className="text-[20px] font-bold">UI/UX Design</h3>
+          <h3 className="text-[20px] font-bold">Contactamos contigo</h3>
           <p className="text-gray-500">
-            Sometimes features require a short description
+            Nuestros profesionales se pondrán en contacto con usted.
           </p>
         </div>
         <div className="flex flex-col gap-2">
           <RiMacFill className="text-4xl p-2 bg-secondary text-primary box-content rounded-xl" />
-          <h3 className="text-[20px] font-bold">Logo Branding</h3>
+          <h3 className="text-[20px] font-bold">Asesoramiento en línea</h3>
           <p className="text-gray-500">
-            Sometimes features require a short description
+            Programamos una reunión con usted para comprender mejor sus necesidades.
           </p>
         </div>
         <div className="flex flex-col gap-2">
           <RiSmartphoneFill className="text-4xl p-2 bg-secondary text-primary box-content rounded-xl" />
-          <h3 className="text-[20px] font-bold">App Design</h3>
+          <h3 className="text-[20px] font-bold">Amplio catálogo de productos</h3>
           <p className="text-gray-500">
-            Sometimes features require a short description
+            Le proporcionamos toda la información de nuestra amplia variedad de catálogos y sus productos.
           </p>
         </div>
         <div className="flex flex-col gap-2">
           <RiMacFill className="text-4xl p-2 bg-secondary text-primary box-content rounded-xl" />
-          <h3 className="text-[20px] font-bold">Webiste Design</h3>
+          <h3 className="text-[20px] font-bold">Sistema de gestión y Ventas</h3>
           <p className="text-gray-500">
-            Sometimes features require a short description
+            Con nuestra plataforma tiene disponible más de 200 canales de venta donde vender productos.
           </p>
         </div>
       </div>
