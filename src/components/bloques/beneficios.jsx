@@ -42,7 +42,6 @@ const Beneficios = () => {
       <Beneficio icono={<RiHeart2Line />} titulo="Proveedor Integral" descripcion="BigBuy se posiciona como un proveedor integral con un amplio stock en productos estratégicos y de alta rotación, ofreciendo además logística y la oportunidad de vender a través de su red de revendedores." />
       <Beneficio icono={<RiHeart2Line />} titulo="Tecnología y análiss de datos" descripcion="Impulsa tu estrategia con análisis de datos avanzado. Toma decisiones inteligentes, adelántate a las tendencias y transforma datos en éxito." />
       <Beneficio className="bg-amarillo" esClicable={true} ruta="#contacto" icono={<RiMessage2Line />} titulo="¿Quieres vender más y mejor?" descripcion="Únete a la plataforma" />
-
     </div>
   );
 };

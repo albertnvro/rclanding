@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Select from 'react-select';
-import { RiCloseLine } from "react-icons/ri";
+import { RiCloseLine  } from "react-icons/ri";
 
 const RegistroGen = ({ isOpen, onRequestClose }) => {
     const [step, setStep] = useState(1);
@@ -91,7 +91,7 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
         <Modal
             isOpen={isOpen}
             onRequestClose={onRequestClose}
-            className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center"
+            className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center "
             overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
             <div className="bg-white p-16 rounded-lg shadow-lg max-w-4xl w-full">
@@ -143,17 +143,20 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
                                 value={formData.salesChannel}
                                 onChange={(option) => handleSelectChange(option, { name: 'salesChannel' })}
                             />
-                            <button type="button" onClick={handleContinuarEnviar} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            <div className="space-x-2 w-full">
+                            <button type="button" onClick={handleContinuarEnviar} className=" bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded basis-1/2">
                                 {formData.userType && (formData.userType.value === 'empresa' || formData.userType.value === 'autonomo') ? 'Continuar' : 'Enviar Formulario'}
                             </button>
-                            <button onClick={onRequestClose} className="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded">
-                    Cerrar
-                </button>
+                            <button onClick={onRequestClose} className="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-2 rounded">
+                                Cerrar
+                            </button>
+                            </div>
                         </>
                     )}
                     {step === 2 && (
                         <>
                             <div className="text-lg font-semibold mb-4">¡Ya casi estamos!</div>
+                            <div className="font-md grey">Introduzca sus datos de facturación</div>
                             <div className="grid grid-cols-2 gap-4">
                                 <input type="text" name="businessName" placeholder="Nombre de la empresa" value={formData.businessName} onChange={handleInputChange} className="form-input border border-gray-300 p-2 rounded-md" />
                                 <input type="text" name="taxId" placeholder="NIF" value={formData.taxId} onChange={handleInputChange} className="form-input border border-gray-300 p-2 rounded-md" />
@@ -176,11 +179,11 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
                             <button type="button" onClick={() => setStep(1)} className="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded mr-4">
                                 Volver
                             </button>
-
+                            <div className="flex flex-row">
                             <button type="submit" className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded">
                                 Registrarme
                             </button>
-                            
+                            </div>
                         </>
                     )}
                 </form>
