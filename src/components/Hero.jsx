@@ -65,7 +65,7 @@ const Hero = () => {
 
         {/* Logos */}
         <img
-          src="./src/assets/carrito.svg"
+          src="./assets/carrito.svg"
           className="w-25 h-25 md:w-20 md:h-20  border-amarillo-600 absolute top-[12%] right-[20%] xl:right-[10%]"
         />
         <img
