@@ -76,6 +76,3 @@ const handleUnirmeClick = () => {
 <button onClick={handleUnirmeClick}>Unirme</button>
 ```
 
-## Contacto
-
-Si tienes preguntas o comentarios sobre este proyecto, no dudes en [ponerte en contacto conmigo](URL de tu perfil de GitHub o correo electrónico).
