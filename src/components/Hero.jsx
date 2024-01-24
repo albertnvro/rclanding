@@ -1,6 +1,8 @@
 import React from "react";
 import { RiCheckboxBlankCircleFill, RiPlayFill, RiStarFill } from "react-icons/ri";
 
+
+
 const scrollToServices = () => {
   const servicesSection = document.getElementById("services");
   if (servicesSection) {
@@ -36,7 +38,7 @@ const Hero = ({ onRegistroClick }) => {
             <button 
               className="w-full xl:w-auto flex items-center justify-start text-left gap-4 py-2 px-8 rounded-xl text-xl"
               onClick={scrollToServices}>
-              <RiPlayFill className="bg-secondary text-primary p-4 rounded-full box-content" />{" "}
+              <RiPlayFill className="bg-black text-amarillo p-4 rounded-full box-content" />{" "}
               Conoce BigBuy <br /> por dentro
             </button>
           </div>
