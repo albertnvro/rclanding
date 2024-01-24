@@ -3,7 +3,7 @@
 
 ## Descripción
 
-Este proyecto es una landing page diseñada para BigBuy. Implementa una interfaz de usuario moderna y responsiva, proporcionando una experiencia atractiva y funcional para los visitantes. La página incluye varios componentes clave como `Hero`, `Header`, y otros, con funcionalidades interactivas.
+Este proyecto es una landing page en React + TailwindCSS diseñada para BigBuy. Implementa una interfaz de usuario moderna y responsiva, proporcionando una experiencia atractiva y fácil para los visitantes.
 
 ## Tecnologías Utilizadas
 
