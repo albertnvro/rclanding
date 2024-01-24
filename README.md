@@ -1,29 +1,81 @@
-## 🚀 Como ejecutarlo en local
 
-Necesitarás tener instalado ``` node.js ``` a partir de la versión 14 y tener acceso a una terminal para seguir los siguientes pasos:
+# Nombre del Proyecto: Landing Page para BigBuy
 
-1. Necesitamos clonar el proyecto añadiendo la siguiente linea de comando en una terminal
-```
-git clone https://github.com/albertnvro/landingbigbuy.git
-```
->
-2. Entramos a la carpeta que acabamos de clonar e instalamos las dependencias necesarias
-```
-npm install
-#
-yarn
-```
->
-3. Ejecutamos nuestro proyecto en local
-```
-npm dev
-#
-yarn dev
+## Descripción
+
+Este proyecto es una landing page diseñada para BigBuy. Implementa una interfaz de usuario moderna y responsiva, proporcionando una experiencia atractiva y funcional para los visitantes. La página incluye varios componentes clave como `Hero`, `Header`, y otros, con funcionalidades interactivas.
+
+## Tecnologías Utilizadas
+
+- React
+- Vite
+- CSS/TailwindCSS
+- Otros paquetes y dependencias relevantes
+
+## Ejecución en Local
+
+Para ejecutar este proyecto en tu entorno local, sigue los siguientes pasos:
+
+1. **Clonar el Repositorio:**
+   
+   ```
+   git clone [URL del repositorio]
+   cd [nombre del proyecto]
+   ```
+
+2. **Instalar Dependencias:**
+   
+   ```
+   npm install
+   ```
+
+3. **Iniciar el Proyecto con Vite:**
+   
+   ```
+   npm run dev
+   ```
+
+   Esto lanzará el proyecto en `localhost:3000` (o en el puerto disponible).
+
+## Integración Ficticia de Google Tag Manager (GTM)
+
+Este proyecto incluye una simulación de integración con Google Tag Manager para el seguimiento de eventos clave en los componentes `Hero` y `Header`. Aunque los eventos de GTM están solo simulados y no se conectan a una cuenta real de GTM, demuestran cómo se podrían implementar en un entorno de producción.
+
+### Simulación en Componente `Hero`
+
+En `Hero.jsx`, el botón principal simula un evento de GTM:
+
+```jsx
+// Hero.jsx
+const handleButtonClick = () => {
+  console.log("Evento GTM - scroll_to_services en Hero");
+  scrollToServices();
+};
+
+return <button onClick={handleButtonClick}>Descubre más</button>;
 ```
 
-💻 En PC
-> Todavía no disponible
+### Simulación en Componente `Header`
 
+En `Header.jsx`, los botones "Beneficios" y "Unirme" simulan eventos de GTM:
 
-📱 En móvil
-> Todavía no disponible
+```jsx
+// Header.jsx
+const handleBeneficiosClick = () => {
+  console.log("Evento GTM - Clic en Beneficios");
+  // Lógica adicional
+};
+
+const handleUnirmeClick = () => {
+  console.log("Evento GTM - Clic en Unirme");
+  // Lógica adicional
+};
+
+// Botones en el JSX
+<button onClick={handleBeneficiosClick}>Beneficios</button>
+<button onClick={handleUnirmeClick}>Unirme</button>
+```
+
+## Contacto
+
+Si tienes preguntas o comentarios sobre este proyecto, no dudes en [ponerte en contacto conmigo](URL de tu perfil de GitHub o correo electrónico).
