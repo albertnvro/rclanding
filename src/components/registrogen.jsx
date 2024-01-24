@@ -1,10 +1,7 @@
-//Formulario de registro general abierto en modal
-//Preservar los datos del formulario si el cliente ya ha escrito algo, que se quede por si quiere continuar con registro
-//El tipo de usuario autonomo o empresa debera rellenar campos adicionales
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Select from 'react-select';
-import { RiCloseLine  } from "react-icons/ri";
+import { RiCloseLine } from "react-icons/ri";
 
 const RegistroGen = ({ isOpen, onRequestClose }) => {
     const [step, setStep] = useState(1);
@@ -23,9 +20,11 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
         postalCode: '',
         stateProvince: '',
         city: '',
-        countryBilling: null
+        countryBilling: null,
+        finalOption: ''
     });
 
+    // Opciones para los selects
     const userTypeOptions = [
         { value: 'empresa', label: 'Soy empresa' },
         { value: 'particular', label: 'Soy particular' },
@@ -36,7 +35,7 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
         { value: 'spain', label: 'España' },
         { value: 'france', label: 'Francia' },
         { value: 'germany', label: 'Alemania' },
-        // paises ejemplo
+        // Más países según sea necesario
     ];
 
     const onlineExperienceOptions = [
@@ -63,7 +62,6 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
     };
 
     const isFormValid = () => {
-        // Validacion
         return formData.userType && formData.contactName && formData.phone && formData.email;
     };
 
@@ -73,17 +71,17 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
             return;
         }
 
-        if (formData.userType.value === 'empresa' || formData.userType.value === 'autonomo') {
+        if (step === 1 && (formData.userType.value === 'empresa' || formData.userType.value === 'autonomo')) {
             setStep(2);
         } else {
-            handleSubmit();
+            setStep(3);
         }
     };
 
     const handleSubmit = (e) => {
-        if (e) e.preventDefault();
+        e?.preventDefault();
         console.log(formData);
-        alert('Mensaje enviado');
+        alert('Registro completado');
         onRequestClose();
     };
 
@@ -91,12 +89,10 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
         <Modal
             isOpen={isOpen}
             onRequestClose={onRequestClose}
-            className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center "
+            className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center"
             overlayClassName="fixed inset-0 bg-black bg-opacity-50"
         >
             <div className="bg-white p-16 rounded-lg shadow-lg max-w-4xl w-full">
-       
-
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {step === 1 && (
                         <>
@@ -113,10 +109,11 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
                                 <Select
                                     options={countryOptions}
                                     name="country"
-                                    className="w-full"
                                     placeholder="País"
                                     value={formData.country}
                                     onChange={(option) => handleSelectChange(option, { name: 'country' })}
+                                    className="basic-single"
+                                    classNamePrefix="select"
                                 />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
@@ -130,26 +127,29 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
                             <Select
                                 options={onlineExperienceOptions}
                                 name="onlineExperience"
-                                className="w-full"
                                 placeholder="¿Tienes experiencia en venta online?"
                                 value={formData.onlineExperience}
                                 onChange={(option) => handleSelectChange(option, { name: 'onlineExperience' })}
+                                className="basic-single"
+                                classNamePrefix="select"
                             />
                             <Select
                                 options={salesChannelOptions}
                                 name="salesChannel"
-                                className="w-full mt-4"
                                 placeholder="¿Ya dispone de un canal de venta online?"
                                 value={formData.salesChannel}
                                 onChange={(option) => handleSelectChange(option, { name: 'salesChannel' })}
+                                className="basic-single"
+                                classNamePrefix="select"
                             />
                             <div className="space-x-2 w-full">
-                            <button type="button" onClick={handleContinuarEnviar} className=" bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded basis-1/2">
-                                {formData.userType && (formData.userType.value === 'empresa' || formData.userType.value === 'autonomo') ? 'Continuar' : 'Enviar Formulario'}
-                            </button>
-                            <button onClick={onRequestClose} className="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-2 rounded">
-                                Cerrar
-                            </button>
+                                <button type="button" onClick={handleContinuarEnviar} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded basis-1/2">
+                                    Continuar
+                                </button>
+                                <button onClick={onRequestClose} className="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-2 rounded">
+                                    Cerrar
+                                </button>
+                             
                             </div>
                         </>
                     )}
@@ -169,21 +169,50 @@ const RegistroGen = ({ isOpen, onRequestClose }) => {
                                 <Select
                                     options={countryOptions}
                                     name="countryBilling"
-                                    className="w-full"
                                     placeholder="País"
                                     value={formData.countryBilling}
                                     onChange={(option) => handleSelectChange(option, { name: 'countryBilling' })}
+                                    className="basic-single"
+                                    classNamePrefix="select"
                                 />
                             </div>
-                            
                             <button type="button" onClick={() => setStep(1)} className="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded mr-4">
                                 Volver
                             </button>
-                            <div className="flex flex-row">
-                            <button type="submit" className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded">
+                            <button type="submit" className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded" onClick={onRegistroClick}>
                                 Registrarme
                             </button>
+                        </>
+                    )}
+                   {step === 3 && (
+                        <>
+                            {/* Contenido del Paso 3 */}
+                            <div className="flex justify-start items-center">
+                                <a href="#" onClick={() => setStep(2)} className="text-blue-600 hover:underline">Volver</a>
                             </div>
+                            <div className="my-4">
+                                <label className="block mb-2">
+                                    <input type="radio" name="finalOption" value="wholesale" 
+                                        checked={formData.finalOption === 'wholesale'}
+                                        onChange={(e) => setFormData({...formData, finalOption: e.target.value})} />
+                                    Venta al por mayor
+                                </label>
+                                <label className="block mb-2">
+                                    <input type="radio" name="finalOption" value="ecommerce" 
+                                        checked={formData.finalOption === 'ecommerce'}
+                                        onChange={(e) => setFormData({...formData, finalOption: e.target.value})} />
+                                    eCommerce
+                                </label>
+                                <label className="block">
+                                    <input type="radio" name="finalOption" value="marketplace" 
+                                        checked={formData.finalOption === 'marketplace'}
+                                        onChange={(e) => setFormData({...formData, finalOption: e.target.value})} />
+                                    Marketplace
+                                </label>
+                            </div>
+                            <button type="submit" className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded">
+                                Enviar Formulario
+                            </button>
                         </>
                     )}
                 </form>

@@ -28,12 +28,7 @@ const Reviews = () => {
         </div>
         <div>
           <h5 className="text-center text-[20px] text-gray-500">
-          <button
-            type="button"
-            className="font-semibold py-2 px-6 bg-amarillo text-black hover:text-white hover:bg-black rounded-xl"
-          >
-            Contacto
-          </button>
+       
           </h5>
         </div>
       </div>

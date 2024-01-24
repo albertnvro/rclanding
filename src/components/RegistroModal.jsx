@@ -1,38 +1,74 @@
 import React, { useState } from 'react';
+import Modal from 'react-modal';
+import { RiCloseLine } from "react-icons/ri";
 
-const Registro = ({ show, onClose }) => {
-  // Estados para controlar los pasos del formulario
-  const [step, setStep] = useState(1);
+const RegistroModal = ({ isOpen, onRequestClose }) => {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+        confirmPassword: ''
+        // Agrega más campos según sea necesario
+    });
 
-  // Funciones para ir al próximo paso o volver al anterior
-  const nextStep = () => setStep(step + 1);
-  const prevStep = () => setStep(step - 1);
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
-  // Verificar si el modal debe mostrarse
-  if (!show) {
-    return null;
-  }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Aquí deberías agregar la lógica para manejar el envío del formulario
+        console.log("Formulario enviado:", formData);
+        onRequestClose(); // Cierra el modal después del envío
+    };
 
-  // Renderizar basándote en el paso en el que te encuentres
-  const renderStep = () => {
-    switch(step) {
-      case 1:
-        return <Step1 nextStep={nextStep} />;
-      case 2:
-        return <Step2 nextStep={nextStep} prevStep={prevStep} />;
-      // ... (añadir más casos para más pasos si es necesario)
-      default:
-        return <Step1 nextStep={nextStep} />;
-    }
-  };
-
-  return (
-    <div className="modal">
-      {renderStep()}
-      {/* Botón para cerrar el modal */}
-      <button onClick={onClose}>Cerrar</button>
-    </div>
-  );
+    return (
+        <Modal
+            isOpen={isOpen}
+            onRequestClose={onRequestClose}
+            className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center"
+            overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+        >
+            <div className="bg-white p-16 rounded-lg shadow-lg max-w-4xl w-full">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 gap-4">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Email" 
+                            value={formData.email} 
+                            onChange={handleInputChange} 
+                            className="form-input border border-gray-300 p-2 rounded-md w-full" 
+                        />
+                        <input 
+                            type="password" 
+                            name="password" 
+                            placeholder="Contraseña" 
+                            value={formData.password} 
+                            onChange={handleInputChange} 
+                            className="form-input border border-gray-300 p-2 rounded-md w-full" 
+                        />
+                        <input 
+                            type="password" 
+                            name="confirmPassword" 
+                            placeholder="Confirmar contraseña" 
+                            value={formData.confirmPassword} 
+                            onChange={handleInputChange} 
+                            className="form-input border border-gray-300 p-2 rounded-md w-full" 
+                        />
+                    </div>
+                    <div className="flex justify-end">
+                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Registrarse
+                        </button>
+                    </div>
+                </form>
+                <button onClick={onRequestClose} className="absolute top-2 right-2 text-gray-700">
+                    <RiCloseLine size={24} />
+                </button>
+            </div>
+        </Modal>
+    );
 };
 
-export default Registro;
+export default RegistroModal;

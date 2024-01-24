@@ -46,9 +46,9 @@ export default class AutoPlay extends Component {
 
         return (
             <div>
-              <div className='bg-white'>
+              <div className='bg-white overflow-hidden'>
                 <Slider {...settings}>
-                    {/* Tus imágenes aquí */}
+                    {/* Imgs aqui */}
                   
      
 
@@ -82,7 +82,7 @@ export default class AutoPlay extends Component {
 
 
                   
-                    {/* Repite para cada imagen */}
+                    {/* mas imgs */}
                     {/* ... */}
                 </Slider>
                 </div>

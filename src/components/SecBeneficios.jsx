@@ -1,20 +1,13 @@
-import React from "react";
-import Beneficios from "./bloques/beneficios";
+import React from 'react';
+import Beneficios from './bloques/beneficios'; // Asegúrate de que esta es la ruta correcta para importar Beneficios
 
-const SecBeneficios = () => {
+const SecBeneficios = ({ onRegistroClick }) => {
   return (
-    <div id="aboutUs" className="p-8 xl:p-20">
-      <div className="mb-8">
-        <h1 className="text-[40px] font-black" id="beneficios">
-          Beneficios de utilizar BigBuy en tu comercio
-        </h1>
-        <p className="text-xl text-gray-500">
-        Impulsando tu éxito en ecommerce con tecnología avanzada, logística integral y estrategia multicanal.
-        </p>
-      </div>
-  
-    <Beneficios /></div>
-  
+    <div className="container mx-auto py-8" id="beneficios">
+      <h2 className="text-3xl font-bold text-center mb-6">Nuestros Beneficios</h2>
+      <Beneficios onRegistroClick={onRegistroClick} />
+      {/* Aquí puedes agregar más contenido si es necesario */}
+    </div>
   );
 };
 
